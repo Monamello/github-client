@@ -2,7 +2,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>Github OAuth</title>
+    <title>Index Page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> <!-- load bulma css -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- load fontawesome -->
     <style>
@@ -12,10 +12,50 @@
 <body>
 <div class="container">
     <div class="jumbotron text-center text">
-        <h1>Autenticação</h1>
-        <p>Faça seu login pelo:</p>
-        <a href="https://github.com/login/oauth/authorize?client_id=<%= client_id %>" class="btn btn-primary"><span class="fa fa-github"></span> Github Login</a>
+        <h1>Index Page</h1>
+        <a onClick="callUserInfos()" class="btn btn-primary"> User Infos</a>
+        <a onClick="callAllRepos()" class="btn btn-primary"> User Repos</a>
     </div>
+
 </div>
 </body>
 </html>
+
+<script>
+    if (! localStorage.getItem("token")){
+        localStorage.setItem("token", "token <%= access_token %>")
+    };
+
+    function callUserInfos(){
+        var myHeaders = new Headers();
+        var myInit = {
+                    method: 'GET',
+                    headers:{'Authorization': localStorage.getItem("token")},
+                };
+
+        fetch('/user', myInit)
+        .then(function(response) {
+        return response.json();
+        })
+        .then(function(user_infos) {
+            console.log(user_infos)
+        });
+    }
+
+    function callAllRepos(){
+        var myHeaders = new Headers();
+        var myInit = {
+                    method: 'GET',
+                    headers:{'Authorization': localStorage.getItem("token")},
+                };
+
+        fetch('/repositories/:<user aquii>', myInit)
+        .then(function(response) {
+        return response.json();
+        })
+        .then(function(repos) {
+            console.log(repos)
+        });
+    }
+
+</script>
