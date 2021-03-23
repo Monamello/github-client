@@ -1,6 +1,7 @@
 import { Router } from 'express';
-import AuthenticationController from '../controller/authenticationController';
-import RepositoryController from '../controller/repositoryController';
+import AuthenticationController from './app/controller/AuthenticationController';
+import RepositoryController from './app/controller/RepositoryController';
+import TagController from './app/controller/TagController';
 
 const routes = new Router();
 
@@ -15,5 +16,13 @@ routes.get('/repository/:user/:repo', RepositoryController.repository)
 routes.get('/repositories/:user', RepositoryController.repositories)
 
 routes.get('/repositories/:user/starred', RepositoryController.repositoriesStarred)
+
+routes.get('/tag', TagController.list)
+
+routes.post('/tag', TagController.create)
+
+routes.put('/tag/:id', TagController.update)
+
+routes.delete('/tag/:id', TagController.delete)
 
 export default routes;

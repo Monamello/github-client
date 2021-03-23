@@ -33,6 +33,7 @@ class AuthenticationController{
                 'Accept': 'application/json'
             }
           })
+        console.log(response.data.access_token)
 
         res.render('pages/index', {access_token: response.data.access_token});
     }
