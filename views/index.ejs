@@ -14,7 +14,6 @@
     <div class="jumbotron text-center text">
         <h1>Index Page</h1>
         <a onClick="callUserInfos()" class="btn btn-primary"> User Infos</a>
-        <a onClick="callAllRepos()" class="btn btn-primary"> User Repos</a>
     </div>
 
 </div>
@@ -39,22 +38,6 @@
         })
         .then(function(user_infos) {
             console.log(user_infos)
-        });
-    }
-
-    function callAllRepos(){
-        var myHeaders = new Headers();
-        var myInit = {
-                    method: 'GET',
-                    headers:{'Authorization': localStorage.getItem("token")},
-                };
-
-        fetch('/repositories/:<user aquii>', myInit)
-        .then(function(response) {
-        return response.json();
-        })
-        .then(function(repos) {
-            console.log(repos)
         });
     }
 

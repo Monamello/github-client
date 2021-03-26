@@ -12,14 +12,12 @@
     "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
     "sequelize": "^6.6.1",
+    "nodemon": "^2.0.7",
+    "sucrase": "^3.17.1",
     "sequelize-cli": "^6.2.0"
   },
   "scripts": {
     "dev": "nodemon src/server.js",
-    "start": "src/app.js"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.7",
-    "sucrase": "^3.17.1"
+    "start": "nodemon src/server.js"
   }
 }

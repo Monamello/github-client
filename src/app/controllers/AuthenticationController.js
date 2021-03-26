@@ -1,6 +1,10 @@
 import axios from 'axios';
 
 class AuthenticationController{
+
+    /**
+    * Return all info by user from github account
+    */
     async getUserInfos(req, res){
         axios({
             method: 'get',
@@ -18,7 +22,7 @@ class AuthenticationController{
      * with github account
      */
     async redirectToLogin(req, res){
-        res.render('pages/login', {client_id: process.env.CLIENT_ID});
+        res.render('login', {client_id: process.env.CLIENT_ID});
     }
 
     /**
@@ -33,9 +37,8 @@ class AuthenticationController{
                 'Accept': 'application/json'
             }
           })
-        console.log(response.data.access_token)
 
-        res.render('pages/index', {access_token: response.data.access_token});
+        res.render('index', {access_token: response.data.access_token});
     }
 }
 

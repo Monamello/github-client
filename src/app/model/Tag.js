@@ -12,6 +12,15 @@ class Tag extends Model {
         );
       return this;
     }
+
+    static associate(models) {
+      this.belongsToMany(models.Repository,{
+        onDelete: 'cascade',
+        as: 'repositories',
+        through: 'repository_tag',
+        foreignKey: 'tag_id'
+      });
+    }
 }
 
 export default Tag;

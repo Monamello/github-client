@@ -1,4 +1,5 @@
 module.exports = {
+  development: {
     dialect: 'postgres',
     host: 'localhost',
     username: 'github_client_admin',
@@ -9,4 +10,18 @@ module.exports = {
       underscored: true,
       underscoredAll: true,
     },
-  };
+  },
+  production: {
+    "use_env_variable": "DATABASE_URL",
+    define: {
+      timestamps: true,
+      underscored: true,
+      underscoredAll: true,
+    },
+    dialectOptions: {
+      ssl: {
+        rejectUnauthorized: false
+      }
+    }
+  }
+};

@@ -1,5 +1,6 @@
-import Tag from '../model/Tag';
 
+import Tag from '../model/Tag';
+import { Op } from 'sequelize';
 class TagService{
 
     /**
@@ -10,13 +11,22 @@ class TagService{
         return Tag.findAll();
     }
 
-    /**
-     * Get the tag object into the database by id.
-     * @param {integer} id
-     * @return {Tag} sequelize model of Tag
-     */
+    // /**
+    //  * Get the tag object into the database by id.
+    //  * @param {integer} id
+    //  * @return {Tag} sequelize model of Tag
+    //  */
     listById(id) {
         return Tag.findByPk(id);
+    }
+
+    //  /**
+    //  * Get the tag object into the database by id.
+    //  * @param {integer} id
+    //  * @return {Tag} sequelize model of Tag
+    //  */
+    async listByName(name) {
+        return await Tag.findAll({include: 'repositories', where: {name: {[Op.like] : `%${name}%`}}})
     }
 
     /**
@@ -24,9 +34,10 @@ class TagService{
      * @param {string} body
      * @return {Tag} sequelize model of Tag
      */
-    create(body) {
+    async create(body) {
         const name = body.name;
-        return Tag.findOrCreate({where: {name}});
+        const [tag, ] = await Tag.findOrCreate({where: {name}});
+        return tag;
     }
 
     /**
