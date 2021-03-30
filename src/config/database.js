@@ -1,7 +1,7 @@
 module.exports = {
   development: {
     dialect: 'postgres',
-    host: 'localhost',
+    host: 'postgres',
     username: 'github_client_admin',
     password: 'github_client_password',
     database: 'github_client',

@@ -12,6 +12,23 @@ Nessa aplicação é possivel:
 
 # Instruções para instalar e configurar;
 Para instalar o projeto e rodar localmente:
+
+## Docker
+* Criar um arquivo .env com as chaves OAuth do Github:
+    ```
+    CLIENT_ID=57da35e14208436ae4fb
+    CLIENT_SECRET=18a4c9ee29ba9b83e2d260938a04b02c035160fd
+    ```
+* Rodar docker-compose:
+    ```
+    docker-compose up
+    ```
+* Rodar migrations para o db:
+    ```
+    docker-compose run app yarn sequelize db:migrate
+    ```
+
+## Manual
 * Clonar o projeto:
 
     ```
@@ -27,8 +44,8 @@ Para instalar o projeto e rodar localmente:
     ```
 * Criar um arquivo .env com as chaves OAuth do Github:
     ```
-    CLIENT_ID=def8605f383ad3e8fa01
-    CLIENT_SECRET=c5be45ebf063dc48ad818efc47de9871e467cd59
+    CLIENT_ID=57da35e14208436ae4fb
+    CLIENT_SECRET=18a4c9ee29ba9b83e2d260938a04b02c035160fd
     ```
 * Rodar as migrações:
     ```
