@@ -6,6 +6,7 @@ import RepositoryController from '../controllers/RepositoryController';
 
 const routes = new Router();
 
+routes.get('/', AuthenticationController.redirectToRouteLogin)
 
 routes.get('/login', AuthenticationController.redirectToLogin)
 

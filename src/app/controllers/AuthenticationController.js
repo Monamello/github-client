@@ -40,6 +40,12 @@ class AuthenticationController{
 
         res.render('index', {access_token: response.data.access_token});
     }
+    /**
+    * Redirect to route /login
+    */
+    async redirectToRouteLogin(req, res) {
+        res.redirect('/login');
+    }
 }
 
 
