@@ -1,0 +1,44 @@
+<!-- views/index.ejs -->
+<!doctype html>
+<html>
+<head>
+    <title>Index Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> <!-- load bulma css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <style>
+        body        { padding-top:30px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron text-center text">
+        <h1>Index Page</h1>
+        <a onClick="callUserInfos()" class="btn btn-primary"> User Infos</a>
+    </div>
+
+</div>
+</body>
+</html>
+
+<script>
+    if (! localStorage.getItem("token")){
+        localStorage.setItem("token", "token <%= access_token %>")
+    };
+
+    function callUserInfos(){
+        var myHeaders = new Headers();
+        var myInit = {
+                    method: 'GET',
+                    headers:{'Authorization': localStorage.getItem("token")},
+                };
+
+        fetch('/user', myInit)
+        .then(function(response) {
+        return response.json();
+        })
+        .then(function(user_infos) {
+            console.log(user_infos)
+        });
+    }
+
+</script>

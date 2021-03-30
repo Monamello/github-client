@@ -1,0 +1,341 @@
+{
+	"info": {
+		"_postman_id": "b29dd961-c7c4-4b33-b72c-1cc28c66513f",
+		"name": "Github-Client",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://github-client-magrathea.herokuapp.com/login",
+							"protocol": "https",
+							"host": [
+								"github-client-magrathea",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user infos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://github-client-magrathea.herokuapp.com/user",
+							"protocol": "https",
+							"host": [
+								"github-client-magrathea",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tags",
+			"item": [
+				{
+					"name": "tag list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://github-client-magrathea.herokuapp.com/tag",
+							"protocol": "https",
+							"host": [
+								"github-client-magrathea",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"tag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tag filter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://github-client-magrathea.herokuapp.com/tag/repositories?name=back",
+							"protocol": "https",
+							"host": [
+								"github-client-magrathea",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"tag",
+								"repositories"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "back"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tag create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Backend\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://github-client-magrathea.herokuapp.com/tag",
+							"protocol": "https",
+							"host": [
+								"github-client-magrathea",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"tag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tag edit",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Backlog\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://github-client-magrathea.herokuapp.com/tag/:id",
+							"protocol": "https",
+							"host": [
+								"github-client-magrathea",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"tag",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tag delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://github-client-magrathea.herokuapp.com/tag/:id",
+							"protocol": "https",
+							"host": [
+								"github-client-magrathea",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"tag",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Repositories",
+			"item": [
+				{
+					"name": "repository list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://github-client-magrathea.herokuapp.com/repositories",
+							"protocol": "https",
+							"host": [
+								"github-client-magrathea",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"repositories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "repository list by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://github-client-magrathea.herokuapp.com/repositories/:id",
+							"protocol": "https",
+							"host": [
+								"github-client-magrathea",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"repositories",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "repository create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://github-client-magrathea.herokuapp.com/repositories/:user",
+							"protocol": "https",
+							"host": [
+								"github-client-magrathea",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"repositories",
+								":user"
+							],
+							"variable": [
+								{
+									"key": "user",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "repository add tags",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[ \n    {\n        \"name\": \"Backlog\"\n    },\n    {\n        \"name\": \"Backend\"\n    },\n    {\n        \"name\": \"Desenvolvimento\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://github-client-magrathea.herokuapp.com/repository/:id",
+							"protocol": "https",
+							"host": [
+								"github-client-magrathea",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"repository",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "repository list from github",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://github-client-magrathea.herokuapp.com/repositories/github/:user",
+							"protocol": "https",
+							"host": [
+								"github-client-magrathea",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"repositories",
+								"github",
+								":user"
+							],
+							"variable": [
+								{
+									"key": "user",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
